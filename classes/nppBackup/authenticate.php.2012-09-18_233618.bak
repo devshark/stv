@@ -1,0 +1,17 @@
+﻿<?php
+require_once('conn/connect.php');
+class Authenticate
+{
+	public static function isValid($username,$password)
+	{
+		$username = trim($username);
+		$password = trim($password);
+		global $conn;
+		$sql = "select count(*) as valid from users where username='{$username}' and password='{$password}'";
+	}
+}
+
+class AuthenticateException extends Exception
+{
+	public function __construct($message){ parent::__construct($message); }
+}

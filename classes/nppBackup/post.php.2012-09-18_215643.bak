@@ -1,0 +1,23 @@
+﻿<?php
+require_once('conn/connect.php');
+class Post{
+	public $post_id;
+	public $content;
+	public $user_id;
+	
+	protected $conn;
+	
+	public __construct($post_id = null)
+	{
+		if($user_id === null or trim($user_id) == '')
+		{
+			$this->post_id = null;
+			$this->content = null;
+			$this->user_id = null;
+		}else{
+			$sql = 
+		}
+	}
+	
+}
+?>
