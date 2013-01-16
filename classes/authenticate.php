@@ -4,9 +4,11 @@ class Authenticate
 {
 	public static function isValid($userid,$password)
 	{
+		global $conn;
 		$userid = trim($userid);
 		$password = trim($password);
-		global $conn;
+		$userid = mysql_escape_string($userid);
+		$password = mysql_escape_string($password);
 		$sql = "select count(*) as valid from users where userid='{$userid}' and password='{$password}'";
 		try{
 			$result = mysql_query($sql,$conn);
