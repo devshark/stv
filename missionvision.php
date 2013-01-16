@@ -7,39 +7,7 @@
 </head>
 <body>
 	<div id="page">
-		<div id="header">
-		<div id="logo" class="orangeaddress">
-			<a href="#">
-			<img alt="School Logo" src="images/stvps1.jpg" height="80%" width="80%" style="border:0pt none;">
-			</a>
-			<br />
-			Palit <br /><a href="http://www.investintech.com">Investintech PDF Solutions</a>
-			</div>
-			<div id="navigation">
-				<ul>
-					<li>
-						<a href="index.html" class="nav_home active navigationpref"><br />Home
-						</a>
-					</li>
-					<li>
-						<a href="missionvision.php" class="nav_about navigationpref"><br />Mission and Vision
-						</a>
-					</li>
-					<li>
-						<a href="register.php" class="nav_workshops navigationpref"><br />Admission
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav_sports navigationpref"><br />Sports
-						</a>
-					</li>
-					<li>
-						<a href="#" class="nav_contact navigationpref"><br />Contact
-						</a>
-					</li>
-				</ul>			
-			</div>
-		</div>
+		<?php include_once('parts/header.php'); ?>
 		<div id="middle">
 			<div id="captionleft">
 				<h1>Mission and Vision</h1>

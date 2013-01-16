@@ -6,7 +6,7 @@
 /* General Style */
 
 body { 	
-	background-image:url(../images/backfader.jpg);
+	/*background-image:url(../images/backfader.jpg);*/
 	background-repeat:repeat-x;	
 	background-color:#285b00;
 	margin:0 auto;
@@ -14,6 +14,9 @@ body {
 	font-size:14px;
 	color:white;
 	text-align:center;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6996AD', endColorstr='#999999'); /* for IE */
+	background: -webkit-gradient(linear, left top, left bottom, from(#6996AD), to(#999999)); /* for webkit browsers */
+	background: -moz-linear-gradient(top,  #6996AD,  #999999); /* for firefox 3.6+ */
 }
 h1 {
 	text-shadow:0.05em 0.05em black;
