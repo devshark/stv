@@ -58,6 +58,7 @@ require_once('classes/post.php');
 	<div id="page">
 	<?php include_once('parts/header.php');?>
 		<div id="middle">
+			<!--
 			<fieldset>
 				<legend>New Post</legend>
 				<form method="post" action="post.save.php">
@@ -68,6 +69,7 @@ require_once('classes/post.php');
 				<p><input type="submit" name="btnSubmit" value="Post" style="float:right;"/></p>
 				</form>
 			</fieldset>
+			-->
 			<?php
 			$posts = Post::get_list_desc();
 			foreach($posts as $post){
@@ -75,6 +77,7 @@ require_once('classes/post.php');
 			<div class="board">
 			<h1><?php echo $post->title;?></h1>
 			<p class="author">Author : <?php echo $post->user_id;?></p>
+			<p class="meta date">Posted on : <?php echo $post->date_added;?></p>
 			<?php echo $post->content;?>
 			</div>
 			<?php } ?>

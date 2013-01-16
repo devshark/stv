@@ -5,6 +5,7 @@ class Post{
 	public $title = null;
 	public $content = null;
 	public $user_id = null;
+	public $date_added = null;
 	
 	private $tablename = 'posts';
 	protected $conn;
@@ -15,7 +16,7 @@ class Post{
 		$this->conn = $conn;
 		if($post_id === null or trim($post_id) == ''){ }
 		else{
-			$sql = 'select post_id,title,content,user_id from '.$this->tablename.' where post_id='.$post_id;
+			$sql = 'select post_id,title,content,user_id, date_added from '.$this->tablename.' where post_id='.$post_id;
 			$result = mysql_query($sql,$this->conn);
 			if( mysql_num_rows($result) > 0)
 			{
@@ -24,6 +25,7 @@ class Post{
 				$this->title = $row->title;
 				$this->content = $row->content;
 				$this->user_id = $row->user_id;
+				$this->date_added = date('Y-m-d', strtotime($row->date_added));
 			}
 		}
 		return $this;

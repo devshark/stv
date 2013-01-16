@@ -199,7 +199,7 @@ a:hover.nav_contact, a.active.nav_contact{
 	float:right;
 	height:318px;
 	padding:30px 94px 30px 30px;
-	width:530px;
+	width:700px;
 	margin-top:15px;
 }
 .board a {
@@ -310,4 +310,9 @@ font-size:30px
 	border:2px solid black;
 	width:100%;
 	padding:50px 0;
+}
+
+div.board .meta, div.board .date{
+	font-size:12px;
+	color:#98F5FF;
 }
