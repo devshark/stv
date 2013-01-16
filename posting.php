@@ -17,6 +17,7 @@ require_once('classes/post.php');
 <script src="js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="js/tiny_mce/jquery.tinymce.js"></script>
 <script type="text/javascript">
+/*
 	$().ready(function() {
 		$('textarea.tinymce').tinymce({
 			// Location of TinyMCE script
@@ -52,6 +53,7 @@ require_once('classes/post.php');
 			}
 		});
 	});
+	*/
 </script>
 </head>
 <body>

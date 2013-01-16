@@ -69,6 +69,16 @@ class Post{
 		}
 		return $return;
 	}
+	
+	public function delete()
+	{
+		global $conn;
+		if($this->post_id != null)
+		{
+			$sql = 'delete from posts where post_id = ' . $this->post_id;
+			$result = mysql_query($sql,$conn);
+		}
+	}
 }
 
 class PostException extends Exception
