@@ -1,5 +1,6 @@
 <?php
-session_start();
+if( ! isset($_SESSION) )
+	session_start();
 require_once('classes/authenticate.php');
 $validation = null;
 if(isset($_POST['btnLogin']))
@@ -18,6 +19,7 @@ if(isset($_POST['btnLogin']))
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta charset="utf-8" />
 		<title>STV ADMIN | LOGIN</title>
 		<style>
 		fieldset#login{

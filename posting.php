@@ -75,6 +75,7 @@ require_once('classes/post.php');
 			<?php
 			$posts = Post::get_list_desc();
 			foreach($posts as $post){
+				// echo var_dump($post);
 			?>
 			<div class="board">
 			<h1><?php echo $post->title;?></h1>
