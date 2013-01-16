@@ -1,0 +1,9 @@
+﻿<?php
+require_once('conn/connect.php');
+class Authenticate
+{
+	public static function isValid($username,$password)
+	{
+		
+	}
+}

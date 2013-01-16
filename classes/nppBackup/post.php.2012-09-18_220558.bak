@@ -1,0 +1,40 @@
+﻿<?php
+require_once('conn/connect.php');
+class Post{
+	public $post_id;
+	public $content;
+	public $user_id;
+	
+	private $tablename = 'posts';
+	protected $conn;
+	
+	public __construct($post_id = null)
+	{
+		$this->conn = $conn;
+		if($user_id === null or trim($user_id) == '')
+		{
+			$this->post_id = null;
+			$this->content = null;
+			$this->user_id = null;
+		}else{
+			$sql = 'select post_id,content,user_id from '.$this->tablename.' where post_id='.$post_id;
+			$result = mysql_query($sql);
+			if( mysql_num_rows($result) > 0)
+			{
+				$row = mysql_fetch_object($result);
+				$this->post_id = $row->post_id;
+				$this->content = $row->content;
+				$this->user_id = $row->user_id;
+			}
+			return $this;
+		}
+		
+		public static get_list()
+		{
+			$sql = 'select post_id from posts order by post_id desc';
+		}
+		
+	}
+	
+}
+?>

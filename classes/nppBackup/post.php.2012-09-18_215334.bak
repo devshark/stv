@@ -1,0 +1,8 @@
+﻿<?php
+require_once('conn/connect.php');
+class Post{
+	public $post_id;
+	public $content;
+	public $user_id;
+}
+?>

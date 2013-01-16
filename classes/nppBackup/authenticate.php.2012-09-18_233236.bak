@@ -1,0 +1,6 @@
+﻿<?php
+require_once('conn/connect.php');
+class Authenticate
+{
+
+}
