@@ -26,9 +26,9 @@ if(isset($_POST['btnSave']))
 		$user->user_id = $_POST['txtID'];
 		$user->password = $_POST['txtPW'];
 		$user->scope = $_POST['scope'];
-		print $user->new;
+		// print $user->new;
 		$user->save();
-		//header('location:admin.accounts.php');
+		header('location:admin.accounts.php');
 	}
 	catch(AuthenticateException $exAuth){
 		$validation = $exAuth->getMessage();

@@ -24,8 +24,8 @@ if( !isset($_SESSION['user_id']) || $_SESSION['user_id'] == null )
 				<li><a href="admin.posts.php">Manage Posts</a></li>
 				<?php if($user->is_admin){?>
 				<li><a href="admin.accounts.php">Manage Accounts</a></li>
-				<li><a href="admin.applist.php">View List of Recent Applicants</a></li>
 				<?php } ?>
+				<li><a href="admin.applist.php">View List of Recent Applicants</a></li>
 				<li><a href="admin.logout.php">Log Out</a></li>
 			</ul>
 		</div>
