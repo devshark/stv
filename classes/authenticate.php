@@ -7,20 +7,28 @@ class Authenticate
 	public $user_id = null;
 	public $password = null;
 	public $scope = null;
+	public $new = true;
 	
 	protected $conn;
+	protected $tablename = 'users';
 	
 	public function __construct($user_id = null)
 	{
 		$this->conn = new Database();
+		$this->new = true;
 		if($user_id != null)
 		{
-			$row = $this->conn->get_where('users',
-				array('userid'=>$user_id))->row();		
-			$this->user_id = $row->userid;
-			$this->password = $row->password;
-			$this->scope = $row->scope;
-			$this->is_admin = ($row->scope == 'admin' ? true : false);
+			$res = $this->conn->get_where($this->tablename,
+				array('userid'=>$user_id));
+			if($res->num_rows() > 0)
+			{
+				$row = $res->row();
+				$this->user_id = $row->userid;
+				$this->password = $row->password;
+				$this->scope = $row->scope;
+				$this->is_admin = ($row->scope == 'admin' ? true : false);
+				$this->new = false;
+			}
 		}
 		return $this;
 	}
@@ -39,12 +47,12 @@ class Authenticate
 		
 		// validation
 		if(trim($this->user_id) == '' ){throw new AuthenticateException('User ID is required.');}
-		if( strlen(trim($this->password)) < 8 ){throw new AuthenticateException('Password should be more than 8 characters long.');}
+		if( strlen(trim($this->password)) < 8 ){throw new AuthenticateException('Password should be at least 8 characters long.');}
 		
 		// if userid is null, it is a new record, so insert.
-		if($this->user_id != null)
+		if($this->new)
 		{
-			$result = $this->conn->get_where('users',
+			$result = $this->conn->get_where($this->tablename,
 				array('userid'=>$this->user_id));
 			if($result->num_rows()>0)
 			{
@@ -52,7 +60,7 @@ class Authenticate
 			}
 			else
 			{
-				$this->conn->insert('users',
+				$this->conn->insert($this->tablename,
 					array('userid'=>$this->user_id,
 					'password'=>$this->password,
 					'scope'=>$this->scope));
@@ -61,7 +69,7 @@ class Authenticate
 		// else, update.
 		else
 		{
-			$this->conn->update('users',
+			$this->conn->update($this->tablename,
 				array('password'=>$this->password,
 				'scope'=>$this->scope),
 				array('userid'=>$this->user_id));
@@ -72,6 +80,15 @@ class Authenticate
 	{
 		$db = new Database();
 		return $db->get('users')->result();
+	}
+	
+	public function delete()
+	{
+		if($this->user_id != null)
+		{
+			$sql = "delete from {$this->tablename} where userid='{$this->user_id}';";
+			$this->conn->query($sql);
+		}
 	}
 	
 	public static function isValid($userid,$password)

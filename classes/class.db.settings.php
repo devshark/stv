@@ -8,7 +8,7 @@
 Class db_settings{
 	public $host = 'localhost';
 	public $user = 'root';
-	public $passwd = '';
+	public $passwd = 'pass';
 	public $db = 'stv_online';
 }
 ?>
